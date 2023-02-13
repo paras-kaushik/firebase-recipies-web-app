@@ -11,7 +11,7 @@ const config = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-if (!firebase.apps.length) {
+if (!firebase.apps.length) {// JUST TO ENSURE MULTIPLE INSTANCES ARE NEVER CREATED
   firebase.initializeApp(config);
 }
 
