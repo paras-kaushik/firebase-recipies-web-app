@@ -6,6 +6,7 @@ function App() {
       <div className='title-row'>
         <h1 className='title'>
           Firebase recicpies
+          Testing the workflow
         </h1>
       </div>
     </div>
