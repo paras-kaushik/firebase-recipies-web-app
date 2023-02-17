@@ -26,6 +26,13 @@ const loginWithGoogle = () => {
 
 const subscribeToAuthChanges = (handleAuthChange) => {
   auth.onAuthStateChanged((user) => {
+
+    if(user){
+      user.getIdTokenResult().then(idTokenResult=>{
+        console.log(idTokenResult.claims.admin);
+        user.admin =idTokenResult.claims.admin;
+      })
+    }
     handleAuthChange(user);
   });
 };

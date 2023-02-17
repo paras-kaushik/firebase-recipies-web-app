@@ -5,31 +5,31 @@ function LoginForm({ existingUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-//   async function handleSubmit(event) {
-//    console.log('this function is for new user sign in')
-//     event.preventDefault();
+  async function handleSubmit(event) {
+   console.log('this function is for new user sign in')
+    event.preventDefault();
 
-//     try {
-//       await FirebaseAuthService.registerUser(username, password);
-//       setUsername("");
-//       setPassword("");
-//     } catch (error) {
-//       alert(error.message);
-//     }
-//   }
+    try {
+      await FirebaseAuthService.registerUser(username, password);
+      setUsername("");
+      setPassword("");
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
-async function handleSubmit(event) {
-    console.log('this function is for login')
-     event.preventDefault();
+// async function handleSubmit(event) {
+//     console.log('this function is for login')
+//      event.preventDefault();
 
-     try {
-       await FirebaseAuthService.loginUser(username, password);
-       setUsername("");
-       setPassword("");
-     } catch (error) {
-       alert(error.message);
-     }
-   }
+//      try {
+//        await FirebaseAuthService.loginUser(username, password);
+//        setUsername("");
+//        setPassword("");
+//      } catch (error) {
+//        alert(error.message);
+//      }
+//    }
 
   function handleLogout() {
     FirebaseAuthService.logoutUser();
@@ -61,7 +61,7 @@ async function handleSubmit(event) {
     <div className="login-form-container">
       {existingUser ? (
         <div className="row">
-          <h3>Welcome, {existingUser.email}</h3>
+          <h3>Welcome, {existingUser.email + existingUser.admin}</h3>
           <button
             type="button"
             className="primary-button"
